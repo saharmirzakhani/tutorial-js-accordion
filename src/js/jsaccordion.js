@@ -3,7 +3,7 @@ function JSAccordion(elementOrSelector) {
         return new JSAccordion(elementOrSelector);
 
     //  define public methods
-    this.innit = function() {
+    this.init = function() {
     };
 
     //  start construction operations
