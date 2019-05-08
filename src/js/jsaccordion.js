@@ -4,6 +4,18 @@ function JSAccordion(elementOrSelector) {
 
     //  define public methods
     this.init = function() {
+        var item,hd,body;
+
+        item = document.querySelectorAll("li");
+        hd = document.querySelectorAll("div.header");
+        body = document.querySelectorAll("div.body");
+
+        for (var i = 0; i < body.length; i++){
+            body[i].id = 'body-' + i;
+        }
+
+
+
     };
 
     //  start construction operations
