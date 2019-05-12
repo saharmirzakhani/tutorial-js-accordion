@@ -4,18 +4,23 @@ function JSAccordion(elementOrSelector) {
 
     //  define public methods
     this.init = function() {
-        var item,hd,body;
-
-        item = document.querySelectorAll("li");
-        hd = document.querySelectorAll("div.header");
-        body = document.querySelectorAll("div.body");
-
-        for (var i = 0; i < body.length; i++){
-            body[i].id = 'body-' + i;
-        }
+        var item,hd,body,ul;
+        item = this.targetElement.querySelectorAll("li");
+        ul = this.targetElement.querySelector("ul");
 
 
+        ul.classList.replace("list","jsac-list");
+        item.forEach(function (element) {
+            if(element.classList.contains("list-item")) {
+                element.classList.replace("list-item", "jsac-list-item");
+            }
+            var hd= element.querySelector("div.header");
 
+            if(hd.classList.contains("header")) {
+                hd.classList.replace("header", "jsac-header");
+            }
+
+        })
     };
 
     //  start construction operations
