@@ -4,7 +4,7 @@ function JSAccordion(elementOrSelector) {
 
     //  define public methods
     this.init = function() {
-        var item,hd,body,ul;
+        var item,ul;
         item = this.targetElement.querySelectorAll("li");
         ul = this.targetElement.querySelector("ul");
 
