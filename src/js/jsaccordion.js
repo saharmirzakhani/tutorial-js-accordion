@@ -4,23 +4,43 @@ function JSAccordion(elementOrSelector) {
 
     //  define public methods
     this.init = function() {
-        var item,ul;
-        item = this.targetElement.querySelectorAll("li");
-        ul = this.targetElement.querySelector("ul");
+        var itemLi,body,itemUl;
+        itemLi = this.targetElement.querySelectorAll("li");
+        itemUl = this.targetElement.querySelector("ul");
+        itemUl.classList.add("jsac-list");
+        itemLi.forEach(function (element) {
+            element.classList.add("jsac-list-item");
+            var itemHead= element.firstElementChild;
+            var itemBody= element.lastElementChild;
+            //console.log(itemBody);
+            itemHead.classList.add("jsac-header");
+            itemBody.classList.add("jsac-body");
+            itemHead.addEventListener("click",toggleAccordion);
 
+            function toggleAccordion() {
 
-        ul.classList.replace("list","jsac-list");
-        item.forEach(function (element) {
-            if(element.classList.contains("list-item")) {
-                element.classList.replace("list-item", "jsac-list-item");
+                if(this.parentNode.classList.contains("expanded")){
+                    this.parentNode.classList.replace("expanded","collapsed");
+                }else {
+                    this.parentNode.classList.replace("collapsed","expanded")
+                }
+
             }
-            var hd= element.querySelector("div.header");
+            /*     function getSiblings (elem) {
+             var siblings = [];
+             var sibling = elem.parentNode.firstElementChild;
+             while(sibling){
+             if (sibling.nodeType === 1 && sibling !== elem) {
+             siblings.push(sibling);
+             }
+             sibling = sibling.nextSibling;
+             }
+             //return siblings;
 
-            if(hd.classList.contains("header")) {
-                hd.classList.replace("header", "jsac-header");
-            }
+             }*/
 
-        })
+        });
+
     };
 
     //  start construction operations
